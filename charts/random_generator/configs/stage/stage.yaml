@@ -1,5 +1,5 @@
 image:
-  tag: 1.23.3
+  tag: latest
 
 env: stage
 
