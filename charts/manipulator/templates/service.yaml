@@ -8,5 +8,5 @@ spec:
   ports:
     - name: http
       port: {{ .Values.service.port }}
-      targetPort: 5001
+      targetPort: 5000
   type: {{ .Values.service.type }}
