@@ -9,7 +9,7 @@ global:
       server: https://kubernetes.default.svc
       namespace: default
     source:
-      repoURL: ""
+      repoURL: "https://github.com/DanielOfir/application-charts"
       targetRevision: HEAD
   syncPolicy:
     automated:
