@@ -1,0 +1,12 @@
+replicaCount: 1
+image:
+  repository: danielofir/manipulator
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+ingress:
+  enabled: false
+
+env: stage

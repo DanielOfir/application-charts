@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: random_generator-{{ .Values.env }}
+spec:
+  selector:
+    app: random_generator-{{ .Values.env }}
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: 5000
+  type: {{ .Values.service.type }}

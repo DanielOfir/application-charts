@@ -7,10 +7,10 @@ global:
 
 
 argocdApplications:
-  nginx-1:
+  random_generator:
     # enable: true
     disable: false
 
-  nginx-2:
+  manipulator:
     disable: false
     # disable: true

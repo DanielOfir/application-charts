@@ -18,14 +18,14 @@ global:
       allowEmpty: false
 
 argocdApplications:
-  nginx-1:
+  random_generator:
     disableAutomated: false
     disable: false
-    name: nginx-1
+    name: random_generator
     namespace: argocddemo
     helm: true
-  nginx-2:
+  manipulator:
     disableAutomated: false
     disable: false
-    name: nginx-2
+    name: manipulator
     namespace: argocddemo

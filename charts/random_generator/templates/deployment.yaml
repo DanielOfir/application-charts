@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random_generator-{{ .Values.env }}
+  labels:
+    app: random_generator-{{ .Values.env }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: random_generator-{{ .Values.env }}
+  template:
+    metadata:
+      labels:
+        app: random_generator-{{ .Values.env }}
+    spec:
+      containers:
+        - name: random_generator
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 5000

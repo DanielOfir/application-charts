@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manipulator-{{ .Values.env }}
+  labels:
+    app: manipulator-{{ .Values.env }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: manipulator-{{ .Values.env }}
+  template:
+    metadata:
+      labels:
+        app: manipulator-{{ .Values.env }}
+    spec:
+      containers:
+        - name: manipulator
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 5001
