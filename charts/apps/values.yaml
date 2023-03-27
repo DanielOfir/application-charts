@@ -1,0 +1,31 @@
+global:
+  env: stage
+  helmDefault: true
+  # valuesFile: values.yaml
+  valuesFile: configs/stage/stage.yaml
+  spec:
+    project: default
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: default
+    source:
+      repoURL: ""
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+
+argocdApplications:
+  nginx-1:
+    disableAutomated: false
+    disable: false
+    name: nginx-1
+    namespace: argocddemo
+    helm: true
+  nginx-2:
+    disableAutomated: false
+    disable: false
+    name: nginx-2
+    namespace: argocddemo

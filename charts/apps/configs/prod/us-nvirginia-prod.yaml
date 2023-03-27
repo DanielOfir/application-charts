@@ -1,0 +1,2 @@
+global:
+  regionValuesFile: configs/prod/us-nvirginia-prod.yaml

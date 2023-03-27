@@ -1,0 +1,16 @@
+global:
+  env: prod
+  helmDefault: true
+  valuesFile: configs/prod/prod.yaml
+  spec:
+    project: default
+
+
+argocdApplications:
+  nginx-1:
+    # enable: true
+    disable: false
+
+  nginx-2:
+    disable: false
+    # disable: true

@@ -1,0 +1,2 @@
+global:
+  regionValuesFile: configs/prod/eu-london-prod.yaml

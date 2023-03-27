@@ -1,0 +1,6 @@
+image:
+  tag: 1.23.3
+
+env: stage
+
+test: true

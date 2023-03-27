@@ -1,0 +1,38 @@
+{{- range $app := .Values.argocdApplications -}}
+{{ if not .disable }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .name }}-{{ $.Values.global.env }}
+  namespace: argocd
+spec:
+  project: {{ $.Values.global.spec.project }}
+  source:
+    repoURL:  {{ $.Values.global.spec.source.repoURL }}
+    {{- if eq $.Values.global.env "prod" }}
+    targetRevision: {{ $.Values.global.spec.source.targetRevision }}
+    {{- else }}
+    targetRevision: {{ .targetRevision }}
+    {{- end }}
+    path: charts/{{ .name }}
+    {{- if default $.Values.global.helmDefault .helm }}
+    helm:
+      valueFiles:
+      - {{ $.Values.global.valuesFile }}
+      - {{ $.Values.global.regionValuesFile }}
+    {{- end }}
+  destination:
+    namespace: {{ default $.Values.global.spec.destination.namespace  .namespace }}
+    server: {{ $.Values.global.spec.destination.server }}
+  syncPolicy:
+    {{- if not .disableAutomated }}
+    automated:
+      prune: {{ $.Values.global.syncPolicy.automated.prune }}
+      selfHeal: {{ $.Values.global.syncPolicy.automated.selfHeal }}
+      allowEmpty: {{ $.Values.global.syncPolicy.automated.allowEmpty }}
+    {{- end }}
+    syncOptions:
+      - CreateNamespace=true
+---
+{{- end }}
+{{- end }}

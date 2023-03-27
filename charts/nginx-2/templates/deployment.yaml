@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-2-{{ .Values.env }}
+  labels:
+    app: nginx-2-{{ .Values.env }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: nginx-2-{{ .Values.env }}
+  template:
+    metadata:
+      labels:
+        app: nginx-2-{{ .Values.env }}
+    spec:
+      containers:
+        - name: nginx
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 80
+      #     volumeMounts:
+      #       - name: config
+      #         mountPath: /etc/nginx/conf.d
+      # volumes:
+      #   - name: config
+      #     configMap:
+      #       name: nginx-config-{{ .Values.env }}
