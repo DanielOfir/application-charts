@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
-  repository: danielofir/random_generator
+  repository: danielofir/random-generator
   tag: latest
   pullPolicy: IfNotPresent
 service:

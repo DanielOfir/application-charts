@@ -18,10 +18,10 @@ global:
       allowEmpty: false
 
 argocdApplications:
-  random_generator:
+  random-generator:
     disableAutomated: false
     disable: false
-    name: random_generator
+    name: random-generator
     namespace: argocddemo
     helm: true
   manipulator:

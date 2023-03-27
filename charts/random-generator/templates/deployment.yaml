@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: random_generator-{{ .Values.env }}
+  name: random-generator-{{ .Values.env }}
   labels:
-    app: random_generator-{{ .Values.env }}
+    app: random-generator-{{ .Values.env }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: random_generator-{{ .Values.env }}
+      app: random-generator-{{ .Values.env }}
   template:
     metadata:
       labels:
-        app: random_generator-{{ .Values.env }}
+        app: random-generator-{{ .Values.env }}
     spec:
       containers:
-        - name: random_generator
+        - name: random-generator
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

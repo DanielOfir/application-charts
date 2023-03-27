@@ -7,7 +7,7 @@ global:
 
 
 argocdApplications:
-  random_generator:
+  random-generator:
     # enable: true
     disable: false
 
