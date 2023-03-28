@@ -1,9 +1,14 @@
-replicaCount: 2
+replicaCount: 1
 deployment:
   image:
     repository: danielofir/random-generator
     tag: latest
     pullPolicy: Always
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
 service:
   type: ClusterIP
   port: 80
