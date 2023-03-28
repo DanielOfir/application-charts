@@ -26,7 +26,7 @@ spec:
           ports:
             - containerPort: 5000
           readinessProbe:
-            httpPost:
+            httpGet:
               path: /square
               port: 5000
             initialDelaySeconds: 10
