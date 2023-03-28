@@ -1,6 +1,7 @@
 image:
   tag: 0.1.0
-
 env: stage
-
 test: true
+deployment:
+  image:
+    tag: ""
