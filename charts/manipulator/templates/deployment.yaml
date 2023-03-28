@@ -27,8 +27,8 @@ spec:
             - containerPort: 5000
           readinessProbe:
             httpGet:
-              path: /square
-              port: 5000
+              path: /
+              port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
             successThreshold: 1
