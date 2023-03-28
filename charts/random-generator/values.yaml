@@ -1,8 +1,9 @@
 replicaCount: 1
-image:
-  repository: danielofir/random-generator
-  tag: latest
-  pullPolicy: Always
+deployment:
+  image:
+    repository: danielofir/random-generator
+    tag: latest
+    pullPolicy: Always
 service:
   type: ClusterIP
   port: 80

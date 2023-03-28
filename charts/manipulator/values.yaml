@@ -1,8 +1,9 @@
 replicaCount: 1
-image:
-  repository: danielofir/manipulator
-  tag: latest
-  pullPolicy: Always
+deployment:
+  image:
+    repository: danielofir/manipulator
+    tag: latest
+    pullPolicy: Always
 service:
   type: ClusterIP
   port: 80

@@ -1,8 +1,9 @@
 replicaCount: 1
-image:
-  repository: nginx
-  tag: stable
-  pullPolicy: Always
+deployment:
+  image:
+    repository: nginx
+    tag: stable
+    pullPolicy: Always
 service:
   type: ClusterIP
   port: 80
