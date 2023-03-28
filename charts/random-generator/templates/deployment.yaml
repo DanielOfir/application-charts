@@ -13,6 +13,11 @@ spec:
     metadata:
       labels:
         app: random-generator-{{ .Values.env }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
     spec:
       containers:
         - name: random-generator
@@ -27,8 +32,3 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
             successThreshold: 1
-      strategy:
-        type: RollingUpdate
-        rollingUpdate:
-          maxUnavailable: 0
-          maxSurge: 1
