@@ -3,4 +3,4 @@ env: stage
 test: true
 deployment:
   image:
-    tag: "main.29-e37a879"
+    tag: "main.30-f726ff8"
